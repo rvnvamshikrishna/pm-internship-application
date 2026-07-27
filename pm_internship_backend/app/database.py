@@ -6,8 +6,9 @@ no other code changes are required.
 """
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+import os
 
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:vamshi@localhost:3306/internship_recommendation"
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://root:vamshi@localhost:3306/internship_recommendation")
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
